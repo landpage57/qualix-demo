@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Suppliers | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="suppliers"
+    data-page-title="Suppliers"
+>
+
+<div class="qx-app">
+
+<!-- ==========================================================
+    GLOBAL SIDEBAR
+========================================================== -->
+
+    <aside
+        id="qx-sidebar"
+        class="qx-sidebar"
+    ></aside>
+
+<!-- ==========================================================
+         MAIN
+========================================================== -->
+    
+    <div class="qx-main">
+
+        <div id="qx-header"></div>    
+
+<!-- ==========================================================
+     CONTENT
+========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="suppliers-page">
+
+<!-- ==========================================================
+     PAGE HEADER
+========================================================== -->
+<section class="qx-dashboard-hero suppliers-hero">
+
+    <div class="qx-dashboard-hero__intro">
+        <h1 class="qx-dashboard-hero__title">Suppliers</h1>
+        <p class="qx-dashboard-hero__description">
+            Manage suppliers, performance, and quality risk.
+        </p>
+    </div>
+
+    <div class="qx-dashboard-hero__actions">
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#newSupplierModal">
+            <i class="ri-add-line me-2"></i>
+            Add Supplier
+        </button>
+    </div>
+
+</section>
+
+<section class="qx-supplier-summary mt-4">
+<div class="row g-3">
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="qx-stat-card">
+            <div class="qx-stat-icon qx-stat-icon-primary">
+                <i class="ri-building-4-line"></i>
+            </div>
+            <div class="qx-stat-content">
+                <span class="qx-stat-label">All Suppliers</span>
+                <span class="qx-stat-value" id="supplierTotal">128</span>
+                <span class="qx-stat-meta">Total suppliers</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="qx-stat-card">
+            <div class="qx-stat-icon qx-stat-icon-success">
+                <i class="ri-checkbox-circle-line"></i>
+            </div>
+            <div class="qx-stat-content">
+                <span class="qx-stat-label">Approved</span>
+                <span class="qx-stat-value" id="supplierApproved">96</span>
+                <span class="qx-stat-meta">Approved suppliers</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="qx-stat-card">
+            <div class="qx-stat-icon qx-stat-icon-warning">
+                <i class="ri-error-warning-line"></i>
+            </div>
+            <div class="qx-stat-content">
+                <span class="qx-stat-label">Conditional</span>
+                <span class="qx-stat-value" id="supplierConditional">22</span>
+                <span class="qx-stat-meta">Conditional approval</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-xl-3">
+        <div class="qx-stat-card">
+            <div class="qx-stat-icon qx-stat-icon-info">
+                <i class="ri-pause-circle-line"></i>
+            </div>
+            <div class="qx-stat-content">
+                <span class="qx-stat-label">Inactive</span>
+                <span class="qx-stat-value" id="supplierInactive">10</span>
+                <span class="qx-stat-meta">Inactive suppliers</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<section class="qx-card qx-filter-card">
+
+<div class="row g-3 align-items-end">
+
+    <div class="col-12 col-lg-4">
+        <label class="qx-form-label">Search</label>
+        <div class="qx-input-icon">
+            <i class="ri-search-line"></i>
+            <input
+                type="text"
+                id="supplierSearch"
+                class="form-control"
+                placeholder="Search supplier...">
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-2">
+        <label class="qx-form-label">Category</label>
+        <select id="supplierCategory" class="form-select">
+            <option value="">All Categories</option>
+            <option value="Raw Material">Raw Material</option>
+            <option value="Electronic">Electronic</option>
+            <option value="Packaging">Packaging</option>
+            <option value="Chemicals">Chemicals</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Logistics">Logistics</option>
+            <option value="Services">Services</option>
+        </select>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-2">
+        <label class="qx-form-label">Risk Level</label>
+        <select id="supplierRisk" class="form-select">
+            <option value="">All Risks</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-2">
+        <label class="qx-form-label">Status</label>
+        <select id="supplierStatus" class="form-select">
+            <option value="">All Statuses</option>
+            <option value="Approved">Approved</option>
+            <option value="Conditional">Conditional</option>
+            <option value="Inactive">Inactive</option>
+        </select>
+    </div>
+
+    <div class="col-12 col-lg-2">
+        <button
+            type="button"
+            id="resetSupplierFilters"
+            class="qx-filter-btn"
+            title="Reset filters"
+            aria-label="Reset filters">
+
+            <i class="ri-refresh-line"></i>
+
+        </button>
+    </div>
+
+</div>
+</section>
+
+<section class="qx-card qx-table-card">
+
+    <div class="qx-table-header">
+        <div>
+            <h5 class="qx-table-title">Supplier List</h5>
+            <p class="qx-table-description mb-0">
+                Review and manage supplier information and quality risk.
+            </p>
+        </div>
+
+        <div>
+            <button type="button" class="btn btn-light btn-sm" id="exportSuppliers">
+                <i class="ri-download-2-line me-1"></i>
+                Export
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table qx-data-table align-middle">
+            <thead>
+                <tr>
+                    <th class="qx-check-column">
+                        <input class="form-check-input" type="checkbox" id="selectAllSuppliers">
+                    </th>
+                    <th>Supplier ID</th>
+                    <th>Supplier Name</th>
+                    <th>Category</th>
+                    <th>Contact Person</th>
+                    <th>Location</th>
+                    <th>Rating</th>
+                    <th>Last Assessment</th>
+                    <th>Risk Level</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="supplierTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="qx-table-footer">
+        <span class="qx-results-info" id="supplierResultsInfo">
+            Showing <strong>1</strong> to <strong>10</strong> of <strong>128</strong> results
+        </span>
+
+        <div class="d-flex align-items-center gap-3">
+            <select class="form-select form-select-sm qx-page-size" id="supplierPageSize">
+                <option value="10">10 / page</option>
+                <option value="25">25 / page</option>
+                <option value="50">50 / page</option>
+            </select>
+
+            <nav aria-label="Supplier pagination">
+                <ul class="pagination pagination-sm mb-0" id="supplierPagination"></ul>
+            </nav>
+        </div>
+    </div>
+
+</section>
+
+</div>
+
+
+</main>
+
+
+<!-- ==========================================================
+     NEW SUPPLIER MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="newSupplierModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title">Add Supplier</h5>
+                    <p class="text-muted mb-0 small">
+                        Create a new supplier record.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Supplier Name</label>
+                        <input
+                            type="text"
+                            id="newSupplierName"
+                            class="form-control"
+                            placeholder="e.g. ABC Corporation">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Category</label>
+                        <select id="newSupplierCategory" class="form-select">
+                            <option selected disabled>Select category</option>
+                            <option>Raw Material</option>
+                            <option>Electronic</option>
+                            <option>Packaging</option>
+                            <option>Chemicals</option>
+                            <option>Maintenance</option>
+                            <option>Logistics</option>
+                            <option>Services</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Contact Person</label>
+                        <input
+                            type="text"
+                            id="newSupplierContact"
+                            class="form-control"
+                            placeholder="e.g. John Carter">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Email</label>
+                        <input
+                            type="email"
+                            id="newSupplierEmail"
+                            class="form-control"
+                            placeholder="supplier@example.com">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Phone</label>
+                        <input
+                            type="text"
+                            id="newSupplierPhone"
+                            class="form-control"
+                            placeholder="+62 ...">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Location</label>
+                        <input
+                            type="text"
+                            id="newSupplierLocation"
+                            class="form-control"
+                            placeholder="e.g. Jakarta">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Risk Level</label>
+                        <select id="newSupplierRisk" class="form-select">
+                            <option selected>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="qx-form-label">Status</label>
+                        <select id="newSupplierStatus" class="form-select">
+                            <option selected>Approved</option>
+                            <option>Conditional</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="qx-form-label">Notes</label>
+                        <textarea
+                            id="newSupplierNotes"
+                            class="form-control"
+                            rows="4"
+                            placeholder="Add supplier notes..."></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary"
+                    id="createSupplierBtn">
+                    <i class="ri-check-line me-2"></i>
+                    Create Supplier
+                </button>
+
+    </div>
+
+</div>
+        
+</div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+<!-- ==========================================================
+     EDIT SUPPLIER MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="editSupplierModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content qx-supplier-edit-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h5 class="modal-title">
+                        Edit Supplier
+                    </h5>
+
+                    <p class="qx-supplier-view-subtitle">
+                        Update supplier information
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="editSupplierId">
+
+
+                <div class="row g-3">
+
+                    <!-- Supplier Name -->
+
+                    <div class="col-12">
+
+                        <label
+                            for="editSupplierName"
+                            class="form-label">
+
+                            Supplier Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="editSupplierName">
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierCategory"
+                            class="form-label">
+
+                            Category
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="editSupplierCategory">
+
+                            <option value="Raw Material">
+                                Raw Material
+                            </option>
+
+                            <option value="Electronic">
+                                Electronic
+                            </option>
+
+                            <option value="Packaging">
+                                Packaging
+                            </option>
+
+                            <option value="Chemicals">
+                                Chemicals
+                            </option>
+
+                            <option value="Maintenance">
+                                Maintenance
+                            </option>
+
+                            <option value="Logistics">
+                                Logistics
+                            </option>
+
+                            <option value="Services">
+                                Services
+                            </option>
+
+                            <option value="Equipment">
+                                Equipment
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Contact -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierContact"
+                            class="form-label">
+
+                            Contact Person
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="editSupplierContact">
+
+                    </div>
+
+
+                    <!-- Location -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierLocation"
+                            class="form-label">
+
+                            Location
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="editSupplierLocation">
+
+                    </div>
+
+
+                    <!-- Rating -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierRating"
+                            class="form-label">
+
+                            Rating
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="editSupplierRating">
+
+                            <option value="1">
+                                1
+                            </option>
+
+                            <option value="2">
+                                2
+                            </option>
+
+                            <option value="3">
+                                3
+                            </option>
+
+                            <option value="4">
+                                4
+                            </option>
+
+                            <option value="5">
+                                5
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Assessment -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierAssessment"
+                            class="form-label">
+
+                            Last Assessment
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="editSupplierAssessment">
+
+                    </div>
+
+
+                    <!-- Risk -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierRisk"
+                            class="form-label">
+
+                            Risk Level
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="editSupplierRisk">
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option value="Medium">
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="editSupplierStatus"
+                            class="form-label">
+
+                            Status
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="editSupplierStatus">
+
+                            <option value="Approved">
+                                Approved
+                            </option>
+
+                            <option value="Conditional">
+                                Conditional
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary"
+                    id="saveSupplierEditBtn">
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+
+</div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+
+</body>
+
+</html>

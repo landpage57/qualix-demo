@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documents | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="documents"
+    data-page-title="Documents"
+>
+
+<div class="qx-app">
+
+<!-- ==========================================================
+     SIDEBAR
+========================================================== -->
+
+    <aside
+        id="qx-sidebar"
+        class="qx-sidebar"
+    ></aside>
+
+<!-- ==========================================================
+         MAIN
+========================================================== -->
+
+    <div class="qx-main">
+
+        <div id="qx-header"></div>
+
+
+<!-- ==========================================================
+     CONTENT
+========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="documents-page">
+
+<!-- ==========================================================
+     PAGE HEADER
+========================================================== -->
+
+<section class="qx-dashboard-hero documents-hero">
+
+    <div class="qx-dashboard-hero__intro">
+        <h1 class="qx-dashboard-hero__title">Documents</h1>
+        <p class="qx-dashboard-hero__description">Manage controlled quality documents.</p>
+    </div>
+
+    <div class="qx-documents-hero__summary">
+        <div class="qx-documents-hero__stat">
+            <i class="ri-file-list-3-line"></i>
+            <div><span class="qx-documents-hero__value" id="documentTotal">0</span><span class="qx-documents-hero__label">Total</span></div>
+        </div>
+        <div class="qx-documents-hero__stat">
+            <i class="ri-draft-line"></i>
+            <div><span class="qx-documents-hero__value" id="documentDraft">0</span><span class="qx-documents-hero__label">Draft</span></div>
+        </div>
+        <div class="qx-documents-hero__stat">
+            <i class="ri-checkbox-circle-line"></i>
+            <div><span class="qx-documents-hero__value" id="documentApproved">0</span><span class="qx-documents-hero__label">Approved</span></div>
+        </div>
+    </div>
+
+    <div class="qx-dashboard-hero__actions">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newDocumentModal">
+            <i class="ri-add-line me-2"></i> Add Document
+        </button>
+    </div>
+</section>
+
+<section class="qx-card qx-filter-card mt-2">
+    <div class="row g-3 align-items-end">
+
+        <div class="col-12 col-lg-7">
+            <label class="qx-form-label">Search</label>
+
+            <div class="qx-input-icon">
+                <i class="ri-search-line"></i>
+
+                <input
+                    type="text"
+                    id="documentSearch"
+                    class="form-control"
+                    placeholder="Search document, number, owner...">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <label class="qx-form-label">Status</label>
+
+            <select
+                id="documentStatus"
+                class="form-select">
+
+                <option value="">All Statuses</option>
+                <option value="Draft">Draft</option>
+                <option value="Approved">Approved</option>
+
+            </select>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-2">
+            <button
+                type="button"
+                id="resetDocumentFilters"
+                class="btn qx-filter-btn w-100">
+
+                <i class="ri-refresh-line"></i>
+
+                <span class="ms-1">Reset</span>
+
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section class="qx-card qx-table-card mt-2">
+
+    <div class="qx-table-header">
+
+        <div>
+            <h5 class="qx-table-title">
+                Document List
+            </h5>
+
+            <p class="qx-table-description mb-0">
+                Controlled quality documents.
+            </p>
+        </div>
+
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                type="checkbox"
+                id="showEntryDate">
+
+            <label
+                class="form-check-label"
+                for="showEntryDate">
+                Show Entry Date
+            </label>
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table id="documentTable" class="table qx-data-table align-middle">
+
+            <colgroup id="documentTableCols"></colgroup>
+
+            <thead id="documentTableHead"></thead>
+
+            <tbody id="documentTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="qx-table-footer">
+
+        <span
+            class="qx-results-info"
+            id="documentResultsInfo">
+        </span>
+
+        <div class="d-flex align-items-center gap-3">
+
+            <select
+                class="form-select form-select-sm qx-page-size"
+                id="documentPageSize">
+
+                <option value="10">
+                    10 / page
+                </option>
+
+                <option value="25">
+                    25 / page
+                </option>
+
+                <option value="50">
+                    50 / page
+                </option>
+
+            </select>
+
+            <nav aria-label="Documents pagination">
+
+                <ul
+                    class="pagination pagination-sm mb-0"
+                    id="documentPagination">
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+
+
+
+<!-- ==========================================================
+     ADD / EDIT DOCUMENT MODAL
+========================================================== -->
+<div class="modal fade" id="newDocumentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="documentModalTitle">Add Document</h5>
+                    <p class="text-muted mb-0 small" id="documentModalSubtitle">Add a controlled quality document.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-md-6"><label class="qx-form-label">Document Number</label><input id="newDocumentNumber" class="form-control" placeholder="e.g. QMS-PRO-001"></div>
+                    <div class="col-md-6"><label class="qx-form-label">Document Type</label><select id="newDocumentType" class="form-select"><option>Policy</option><option selected>Procedure</option><option>Work Instruction</option><option>Form</option><option>Manual</option></select></div>
+                    <div class="col-12"><label class="qx-form-label">Document Title</label><input id="newDocumentTitle" class="form-control" placeholder="Enter document title..."></div>
+                    <div class="col-md-6"><label class="qx-form-label">Owner</label><input id="newDocumentOwner" class="form-control" placeholder="e.g. John Carter"></div>
+                    <div class="col-md-6"><label class="qx-form-label">Status</label><select id="newDocumentStatus" class="form-select"><option selected>Draft</option><option>Approved</option></select></div>
+                    <div class="col-12"><label class="qx-form-label">Description</label><textarea id="newDocumentDescription" class="form-control" rows="3" placeholder="Describe the document purpose..."></textarea></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn qx-btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn qx-btn-primary" id="createDocumentBtn"><i class="ri-check-line me-2"></i><span id="documentSaveLabel">Add Document</span>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+    </div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+</body>
+
+</html>

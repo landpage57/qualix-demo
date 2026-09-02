@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Integrations | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="integrations"
+    data-page-title="Integrations"
+>
+
+<div class="qx-app">
+
+    <!-- ==========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside
+        id="qx-sidebar"
+        class="qx-sidebar"
+    ></aside>
+
+<!-- ==========================================================
+     MAIN
+========================================================== -->
+
+    <div class="qx-main">
+
+        <div id="qx-header"></div>
+
+<!-- ==========================================================
+     MAIN CONTENT
+========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="integrations-page">
+
+
+<!-- ==================================================
+     PAGE HEADER
+================================================== -->
+
+<section class="qx-dashboard-hero integrations-hero">
+
+        <div class="qx-dashboard-hero__intro">
+
+                        <h1 class="qx-dashboard-hero__title">
+                            Integrations
+                        </h1>
+
+                        <p class="qx-dashboard-hero__description">
+                            Manage and monitor all system integrations
+                            in one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="qx-dashboard-hero__actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="addIntegrationBtn"
+                        >
+                            <i class="ri-add-line me-2"></i>
+                            Add Integration
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     BLOCK 1 — INTEGRATION STATUS
+                ================================================== -->
+
+                <section class="qx-integrations-status mt-2">
+
+                    <div class="row g-2">
+
+
+                        <!-- Connected Integrations -->
+
+                        <div class="col-12 col-md-6 col-xl-4">
+
+                            <div class="qx-integration-stat qx-integration-stat--success">
+
+                                <div class="qx-integration-stat__icon">
+                                    <i class="ri-links-line"></i>
+                                </div>
+
+                                <div class="qx-integration-stat__content">
+
+                                    <span class="qx-stat-label">
+                                        Connected Integrations
+                                    </span>
+
+                                    <strong
+                                        class="qx-stat-value"
+                                        id="connectedIntegrationsCount"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span class="qx-stat-meta">
+                                        <i class="ri-arrow-up-line"></i>
+                                        25% vs last month
+                                    </span>
+
+                                </div>
+
+                                <div class="qx-stat-sparkline">
+                                    <svg viewBox="0 0 100 40" aria-hidden="true">
+                                        <polyline
+                                            points="2,28 12,25 22,27 32,19 42,25 52,14 62,20 72,6 82,17 92,13 98,18"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div class="qx-stat-footer">
+                                    <span>
+                                        <i class="ri-checkbox-blank-circle-fill"></i>
+                                        All systems operational
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Available Integrations -->
+
+                        <div class="col-12 col-md-6 col-xl-4">
+
+                            <div class="qx-integration-stat qx-integration-stat--info">
+
+                                <div class="qx-integration-stat__icon">
+                                    <i class="ri-plug-line"></i>
+                                </div>
+
+                                <div class="qx-integration-stat__content">
+
+                                    <span class="qx-stat-label">
+                                        Available Integrations
+                                    </span>
+
+                                    <strong
+                                        class="qx-stat-value"
+                                        id="availableIntegrationsCount"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span class="qx-stat-meta">
+                                        Ready to connect
+                                    </span>
+
+                                </div>
+
+                                <div class="qx-stat-sparkline">
+                                    <svg viewBox="0 0 100 40" aria-hidden="true">
+                                        <polyline
+                                            points="2,28 12,25 22,27 32,18 42,26 52,12 62,20 72,7 82,18 92,14 98,18"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div class="qx-stat-footer">
+                                    <span>
+                                        View available integrations
+                                        <i class="ri-arrow-right-line"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Failed / Attention -->
+
+                        <div class="col-12 col-md-6 col-xl-4">
+
+                            <div class="qx-integration-stat qx-integration-stat--danger">
+
+                                <div class="qx-integration-stat__icon">
+                                    <i class="ri-error-warning-line"></i>
+                                </div>
+
+                                <div class="qx-integration-stat__content">
+
+                                    <span class="qx-stat-label">
+                                        Failed / Attention
+                                    </span>
+
+                                    <strong
+                                        class="qx-stat-value"
+                                        id="failedIntegrationsCount"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span class="qx-stat-meta">
+                                        Requires attention
+                                    </span>
+
+                                </div>
+
+                                <div class="qx-stat-sparkline">
+                                    <svg viewBox="0 0 100 40" aria-hidden="true">
+                                        <polyline
+                                            points="2,20 12,24 22,18 32,25 42,10 52,22 62,16 72,27 82,19 92,24 98,21"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        />
+                                    </svg>
+                                </div>
+
+                                <div class="qx-stat-footer">
+                                    <span>
+                                        View issues
+                                        <i class="ri-arrow-right-line"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     BLOCK 2 — INTEGRATIONS
+                ================================================== -->
+
+                <section class="qx-card qx-integrations-card mt-2">
+
+
+                    <!-- Section Header -->
+
+                    <div class="qx-table-header integrations-section-header">
+
+                        <div>
+
+                            <h5 class="qx-table-title">
+                                Integrations
+                            </h5>
+
+                            <p class="qx-table-description mb-0">
+                                Connect Qualix with the tools your
+                                organization already uses.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Controls -->
+
+                        <div class="integrations-controls">
+
+                            <select
+                                id="integrationCategory"
+                                class="form-select form-select-sm"
+                            >
+                                <option value="">
+                                    All Categories
+                                </option>
+
+                                <option value="Communication">
+                                    Communication
+                                </option>
+
+                                <option value="Storage">
+                                    Storage
+                                </option>
+
+                                <option value="Automation">
+                                    Automation
+                                </option>
+
+                                <option value="API">
+                                    API
+                                </option>
+
+                            </select>
+
+
+                            <div class="qx-input-icon integrations-search">
+
+                                <i class="ri-search-line"></i>
+
+                                <input
+                                    type="search"
+                                    id="integrationSearch"
+                                    class="form-control"
+                                    placeholder="Search integrations..."
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Integration Cards -->
+
+                    <div
+                        class="row g-2"
+                        id="integrationGrid"
+                    ></div>
+
+                </section>
+
+
+
+    </div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+
+</div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+========================================================== -->
+
+
+</body>
+
+</html>

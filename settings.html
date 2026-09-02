@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="settings"
+    data-page-title="Settings"
+>
+
+<div class="qx-app">
+
+<!-- ==========================================================
+     SIDEBAR
+========================================================== -->
+
+<aside id="qx-sidebar" class="qx-sidebar"></aside>
+
+<!-- ==========================================================
+         MAIN
+========================================================== -->
+
+    <div class="qx-main">
+
+        <!-- Global Header -->
+        <div id="qx-header"></div>
+
+<!-- ==========================================================
+     CONTENT
+========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="settings-page">
+
+
+<!-- ==========================================================
+     PAGE HEADER
+========================================================== -->
+
+<section class="qx-dashboard-hero settings-hero">
+
+    <div class="qx-dashboard-hero__intro">
+
+        <h1 class="qx-dashboard-hero__title">
+            Settings
+        </h1>
+
+        <p class="qx-dashboard-hero__description">
+            Manage your application preferences and system settings.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     SETTINGS LAYOUT
+========================================================== -->
+
+<section class="settings-layout mt-2">
+
+
+    <!-- ======================================================
+         SETTINGS NAVIGATION
+    ======================================================= -->
+
+    <aside class="qx-card settings-nav-card">
+
+        <nav class="settings-nav" aria-label="Settings navigation">
+
+            <button
+                type="button"
+                class="settings-nav__item settings-nav__item--active"
+                data-settings-tab="general">
+
+                <i class="ri-settings-3-line"></i>
+
+                <span>
+                    General
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="settings-nav__item"
+                data-settings-tab="appearance">
+
+                <i class="ri-palette-line"></i>
+
+                <span>
+                    Appearance
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="settings-nav__item"
+                data-settings-tab="notifications">
+
+                <i class="ri-notification-3-line"></i>
+
+                <span>
+                    Notifications
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="settings-nav__item"
+                data-settings-tab="security">
+
+                <i class="ri-lock-line"></i>
+
+                <span>
+                    Security
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="settings-nav__item"
+                data-settings-tab="system">
+
+                <i class="ri-computer-line"></i>
+
+                <span>
+                    System
+                </span>
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ======================================================
+         SETTINGS CONTENT
+    ======================================================= -->
+
+    <div class="settings-content">
+
+
+        <!-- ==================================================
+             GENERAL SETTINGS
+        =================================================== -->
+
+        <section
+    class="qx-card settings-panel settings-panel--general settings-panel--active"
+    data-settings-panel="general">
+
+            <div class="settings-panel__header">
+
+                <div class="settings-panel__icon">
+
+                    <i class="ri-settings-3-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h5 class="settings-panel__title">
+                        General Settings
+                    </h5>
+
+                    <p class="settings-panel__description">
+                        Manage company information and application preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-section__heading">
+
+                    <i class="ri-building-2-line"></i>
+
+                    <span>
+                        Company Information
+                    </span>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="companyName"
+                            class="qx-form-label">
+
+                            Company Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="companyName"
+                            class="form-control"
+                            value="Northstar Quality Systems">
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="companyEmail"
+                            class="qx-form-label">
+
+                            Company Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="companyEmail"
+                            class="form-control"
+                            value="quality@example.com">
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="companyPhone"
+                            class="qx-form-label">
+
+                            Company Phone
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="companyPhone"
+                            class="form-control"
+                            value="+1 212 555 0147">
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="companyAddress"
+                            class="qx-form-label">
+
+                            Company Address
+
+                        </label>
+
+                        <textarea
+                            id="companyAddress"
+                            class="form-control"
+                            rows="3">123 Quality Avenue, Global Business District</textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-section__heading">
+
+                    <i class="ri-global-line"></i>
+
+                    <span>
+                        Regional Settings
+                    </span>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-4">
+
+                        <label
+                            for="timezone"
+                            class="qx-form-label">
+
+                            Timezone
+
+                        </label>
+
+                        <select
+                            id="timezone"
+                            class="form-select">
+
+                            <option selected>
+                                America/New_York (GMT-05:00)
+                            </option>
+
+                            <option>
+                                America/Los_Angeles (GMT-08:00)
+                            </option>
+
+                            <option>
+                                Europe/London (GMT+00:00)
+                            </option>
+
+                            <option>
+                                Europe/Paris (GMT+01:00)
+                            </option>
+
+                            <option>
+                                Asia/Singapore (GMT+08:00)
+                            </option>
+
+                            <option>
+                                Asia/Tokyo (GMT+09:00)
+                            </option>
+
+                            <option>
+                                Australia/Sydney (GMT+10:00)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-4">
+
+                        <label
+                            for="dateFormat"
+                            class="qx-form-label">
+
+                            Date Format
+
+                        </label>
+
+                        <select
+                            id="dateFormat"
+                            class="form-select">
+
+                            <option selected>
+                                DD/MM/YYYY
+                            </option>
+
+                            <option>
+                                MM/DD/YYYY
+                            </option>
+
+                            <option>
+                                YYYY-MM-DD
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-4">
+
+                        <label
+                            for="numberFormat"
+                            class="qx-form-label">
+
+                            Number Format
+
+                        </label>
+
+                        <select
+                            id="numberFormat"
+                            class="form-select">
+
+                            <option selected>
+                                1.234,56
+                            </option>
+
+                            <option>
+                                1,234.56
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-section__heading">
+
+                    <i class="ri-computer-line"></i>
+
+                    <span>
+                        Application Settings
+                    </span>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="applicationName"
+                            class="qx-form-label">
+
+                            Application Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="applicationName"
+                            class="form-control"
+                            value="Qualix Quality Management System">
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="defaultLanguage"
+                            class="qx-form-label">
+
+                            Default Language
+
+                        </label>
+
+                        <select
+                            id="defaultLanguage"
+                            class="form-select">
+
+                            <option selected>
+                                English
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-panel__footer">
+
+                <button
+                    type="button"
+                    class="btn qx-btn-secondary">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary">
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             APPEARANCE SETTINGS
+        =================================================== -->
+
+        <section
+            class="qx-card settings-panel settings-panel--appearance"
+            data-settings-panel="appearance">
+
+            <div class="settings-panel__header">
+
+                <div class="settings-panel__icon">
+
+                    <i class="ri-palette-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h5 class="settings-panel__title">
+                        Appearance
+                    </h5>
+
+                    <p class="settings-panel__description">
+                        Configure the visual appearance of Qualix.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-section__heading">
+
+                    <i class="ri-contrast-2-line"></i>
+
+                    <span>
+                        Theme
+                    </span>
+
+                </div>
+
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="themeMode"
+                            class="qx-form-label">
+
+                            Theme Mode
+
+                        </label>
+
+                        <select
+                            id="themeMode"
+                            class="form-select">
+
+                            <option selected>
+                                Light
+                            </option>
+
+                            <option>
+                                Dark
+                            </option>
+
+                            <option>
+                                System Default
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="sidebarDensity"
+                            class="qx-form-label">
+
+                            Sidebar Density
+
+                        </label>
+
+                        <select
+                            id="sidebarDensity"
+                            class="form-select">
+
+                            <option selected>
+                                Comfortable
+                            </option>
+
+                            <option>
+                                Compact
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-panel__footer">
+
+                <button
+                    type="button"
+                    class="btn qx-btn-secondary">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary">
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             NOTIFICATION SETTINGS
+        =================================================== -->
+
+        <section
+            class="qx-card settings-panel settings-panel--notifications"
+            data-settings-panel="notifications">
+
+            <div class="settings-panel__header">
+
+                <div class="settings-panel__icon">
+
+                    <i class="ri-notification-3-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h5 class="settings-panel__title">
+                        Notifications
+                    </h5>
+
+                    <p class="settings-panel__description">
+                        Choose which notifications Qualix should send.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-toggle">
+
+                    <div>
+
+                        <strong>
+                            Audit Reminders
+                        </strong>
+
+                        <p>
+                            Receive reminders for upcoming audits.
+                        </p>
+
+                    </div>
+
+                    <div class="form-check form-switch">
+
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="auditReminders"
+                            checked>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle">
+
+                    <div>
+
+                        <strong>
+                            CAPA Updates
+                        </strong>
+
+                        <p>
+                            Receive notifications when CAPA status changes.
+                        </p>
+
+                    </div>
+
+                    <div class="form-check form-switch">
+
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="capaUpdates"
+                            checked>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle">
+
+                    <div>
+
+                        <strong>
+                            System Notifications
+                        </strong>
+
+                        <p>
+                            Receive important system announcements.
+                        </p>
+
+                    </div>
+
+                    <div class="form-check form-switch">
+
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="systemNotifications"
+                            checked>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-panel__footer">
+
+                <button
+                    type="button"
+                    class="btn qx-btn-secondary">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary">
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SECURITY SETTINGS
+        =================================================== -->
+
+        <section
+            class="qx-card settings-panel settings-panel--security"
+            data-settings-panel="security">
+
+            <div class="settings-panel__header">
+
+                <div class="settings-panel__icon">
+
+                    <i class="ri-lock-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h5 class="settings-panel__title">
+                        Security
+                    </h5>
+
+                    <p class="settings-panel__description">
+                        Configure security and account protection preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="settings-toggle">
+
+                    <div>
+
+                        <strong>
+                            Two-Factor Authentication
+                        </strong>
+
+                        <p>
+                            Require an additional verification step when signing in.
+                        </p>
+
+                    </div>
+
+                    <div class="form-check form-switch">
+
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="twoFactorAuthentication">
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-toggle">
+
+                    <div>
+
+                        <strong>
+                            Session Timeout
+                        </strong>
+
+                        <p>
+                            Automatically sign out inactive users.
+                        </p>
+
+                    </div>
+
+
+                    <select
+                        id="sessionTimeout"
+                        class="form-select settings-inline-select">
+
+                        <option>
+                            15 minutes
+                        </option>
+
+                        <option selected>
+                            30 minutes
+                        </option>
+
+                        <option>
+                            60 minutes
+                        </option>
+
+                        <option>
+                            120 minutes
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-panel__footer">
+
+                <button
+                    type="button"
+                    class="btn qx-btn-secondary">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary">
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             SYSTEM SETTINGS
+        =================================================== -->
+
+        <section
+            class="qx-card settings-panel settings-panel--system"
+            data-settings-panel="system">
+
+            <div class="settings-panel__header">
+
+                <div class="settings-panel__icon">
+
+                    <i class="ri-computer-line"></i>
+
+                </div>
+
+                <div>
+
+                    <h5 class="settings-panel__title">
+                        System
+                    </h5>
+
+                    <p class="settings-panel__description">
+                        View application information and system preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="applicationVersion"
+                            class="qx-form-label">
+
+                            Application Version
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="applicationVersion"
+                            class="form-control"
+                            value="1.0.0"
+                            readonly>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                            for="environment"
+                            class="qx-form-label">
+
+                            Environment
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="environment"
+                            class="form-control"
+                            value="Production"
+                            readonly>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+</div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+
+</div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+</body>
+
+</html>

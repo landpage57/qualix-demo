@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+    <style>
+        @media print {
+
+            .qx-sidebar,
+            .qx-dashboard-hero__actions,
+            .qx-report-list-card,
+            .qx-report-detail-actions {
+                display: none !important;
+            }
+
+            .qx-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+            .qx-report-detail-card {
+                box-shadow: none !important;
+                border: 0 !important;
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="reports"
+    data-page-title="Reports"
+>
+
+<div class="qx-app">
+
+<!-- ==========================================================
+        SIDEBAR
+=========================================================== -->
+
+    <aside id="qx-sidebar" class="qx-sidebar"></aside>
+
+<!-- ==========================================================
+         MAIN
+========================================================== -->
+
+    <div class="qx-main">
+
+        <!-- Global Header -->
+        <div id="qx-header"></div>
+
+
+<!-- ==========================================================
+        CONTENT
+=========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="reports-page">
+
+
+<!-- ==================================================
+    BLOCK 1 — PAGE HEADER
+=================================================== -->
+
+<section class="qx-dashboard-hero reports-hero">
+
+                    <div class="qx-dashboard-hero__intro">
+
+                        <h1 class="qx-dashboard-hero__title">
+                            Reports
+                        </h1>
+
+                        <p class="qx-dashboard-hero__description">
+                            View and export quality reports.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     BLOCK 2 — REPORT LIST
+                =================================================== -->
+
+                <section
+                    class="qx-card qx-table-card qx-report-list-card mt-2"
+                >
+
+                    <div class="qx-table-header">
+
+                        <div>
+
+                            <h5 class="qx-table-title">
+                                Report List
+                            </h5>
+
+                            <p class="qx-table-description mb-0">
+                                Select a report to view its latest
+                                quality data.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table
+                            class="table qx-data-table align-middle"
+                        >
+
+                            <thead>
+                                <tr>
+                                    <th class="qx-report-col-name">
+                                        Report
+                                    </th>
+
+                                    <th class="qx-report-col-description">
+                                        Description
+                                    </th>
+
+                                    <th class="qx-report-col-updated">
+                                        Last Updated
+                                    </th>
+
+                                    <th class="qx-report-col-action text-end">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="reportTableBody"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     BLOCK 3 — REPORT DETAIL / EXPORT
+                =================================================== -->
+
+                <section
+                    class="qx-card qx-report-detail-card mt-2"
+                >
+
+                    <div class="qx-card-header">
+
+                        <div class="qx-card-header-left">
+
+                            <h5 class="qx-card-title">
+                                Report Detail
+                            </h5>
+
+                            <p class="qx-card-subtitle">
+                                Select a report from the list to view
+                                its details.
+                            </p>
+
+                        </div>
+
+
+                        <div class="qx-report-detail-actions d-flex gap-2">
+
+                            <button
+                                type="button"
+                                class="btn btn-sm qx-export-excel d-none"
+                                id="exportReportExcel"
+                            >
+                                <i class="ri-file-excel-2-line me-1"></i>
+                                Export Excel
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-sm qx-export-pdf d-none"
+                                id="exportReportPdf"
+                            >
+                                <i class="ri-file-pdf-2-line me-1"></i>
+                                Export PDF
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="qx-card-body">
+
+
+                        <!-- EMPTY STATE -->
+
+                        <div
+                            id="reportDetailEmpty"
+                            class="text-center py-5"
+                        >
+
+                            <div class="mb-3">
+
+                                <i
+                                    class="ri-file-chart-line"
+                                    style="
+                                        font-size:28px;
+                                        color:#98a2b3;
+                                    "
+                                ></i>
+
+                            </div>
+
+
+                            <h6 class="fw-semibold mb-2">
+                                No Report Selected
+                            </h6>
+
+
+                            <p class="text-muted mb-0">
+
+                                Click the
+
+                                <strong>
+                                    <i class="ri-eye-line"></i>
+                                    View
+                                </strong>
+
+                                button above to open a report.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- REPORT DETAIL -->
+
+                        <div
+                            id="reportDetailContent"
+                            class="d-none"
+                        >
+
+                            <div class="row g-4 mb-4">
+
+
+                                <div class="col-12 col-lg-8">
+
+                                    <span class="qx-stat-label">
+                                        Report
+                                    </span>
+
+                                    <h4
+                                        class="fw-semibold mb-2"
+                                        id="detailReportTitle"
+                                    >
+                                        —
+                                    </h4>
+
+                                    <p
+                                        class="text-muted mb-0"
+                                        id="detailReportDescription"
+                                    >
+                                        —
+                                    </p>
+
+                                </div>
+
+
+                                <div class="col-12 col-lg-4">
+
+                                    <div class="mb-3">
+
+                                        <span class="qx-stat-label">
+                                            Period
+                                        </span>
+
+                                        <div
+                                            class="fw-semibold"
+                                            id="detailReportPeriod"
+                                        >
+                                            —
+                                        </div>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <span class="qx-stat-label">
+                                            Last Updated
+                                        </span>
+
+                                        <div
+                                            id="detailReportUpdated"
+                                        >
+                                            —
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="table-responsive">
+
+                                <table
+                                    class="table qx-data-table align-middle"
+                                >
+
+                                    <thead
+                                        id="reportDetailHead"
+                                    >
+                                    </thead>
+
+                                    <tbody
+                                        id="reportDetailBody"
+                                    >
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+    </div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+
+</div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+<!-- ==========================================================
+     PAGE JAVASCRIPT
+=========================================================== -->
+
+
+
+</body>
+
+</html>

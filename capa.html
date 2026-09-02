@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAPA | Qualix</title>
+
+    <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/qualix-demo/favicon.svg">
+
+  <script type="module" crossorigin src="/qualix-demo/assets/main-D7z1H8ph.js"></script>
+  <link rel="stylesheet" crossorigin href="/qualix-demo/assets/main-CQWTh1KS.css">
+</head>
+
+<body
+    data-page="capa"
+    data-page-title="CAPA"
+>
+
+<div class="qx-app">
+
+<!-- ==========================================================
+     SIDEBAR
+========================================================== -->
+
+    <aside
+        id="qx-sidebar"
+        class="qx-sidebar"
+    ></aside>
+
+<!-- ==========================================================
+         MAIN
+========================================================== -->
+
+    <div class="qx-main">
+
+        <div id="qx-header"></div>
+
+
+<!-- ==========================================================
+     CONTENT
+========================================================== -->
+
+    <main class="qx-content">
+
+        <div class="qx-container">
+
+            <div class="capa-page">
+
+<!-- ======================================================
+        BLOCK 1 — PAGE HEADER
+======================================================= -->
+
+    <section class="qx-dashboard-hero capa-hero">
+
+        <div class="qx-dashboard-hero__intro">
+            <h1 class="qx-dashboard-hero__title">CAPA</h1>
+
+            <p class="qx-dashboard-hero__description">
+                Manage corrective and preventive actions.
+            </p>
+        </div>
+
+        <div class="qx-dashboard-hero__actions">
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#newCapaModal">
+
+                <i class="ri-add-line me-2"></i>
+                Create CAPA
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         BLOCK 2 — CAPA KPI
+    ======================================================= -->
+
+    <section class="qx-capa-summary">
+
+        <div class="row g-3">
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="qx-stat-card">
+
+                    <div class="qx-stat-icon qx-stat-icon-primary">
+                        <i class="ri-file-list-3-line"></i>
+                    </div>
+
+                    <div class="qx-stat-content">
+                        <span class="qx-stat-label">Total CAPA</span>
+                        <span class="qx-stat-value" id="capaTotal">24</span>
+                        <span class="qx-stat-meta">All actions</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="qx-stat-card">
+
+                    <div class="qx-stat-icon qx-stat-icon-info">
+                        <i class="ri-time-line"></i>
+                    </div>
+
+                    <div class="qx-stat-content">
+                        <span class="qx-stat-label">Open CAPA</span>
+                        <span class="qx-stat-value" id="capaOpen">12</span>
+                        <span class="qx-stat-meta">Need action</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="qx-stat-card">
+
+                    <div class="qx-stat-icon qx-stat-icon-warning">
+                        <i class="ri-alarm-warning-line"></i>
+                    </div>
+
+                    <div class="qx-stat-content">
+                        <span class="qx-stat-label">Overdue</span>
+                        <span class="qx-stat-value" id="capaOverdue">3</span>
+                        <span class="qx-stat-meta">Past due date</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="qx-stat-card">
+
+                    <div class="qx-stat-icon qx-stat-icon-success">
+                        <i class="ri-checkbox-circle-line"></i>
+                    </div>
+
+                    <div class="qx-stat-content">
+                        <span class="qx-stat-label">Completed</span>
+                        <span class="qx-stat-value" id="capaCompleted">9</span>
+                        <span class="qx-stat-meta">Closed actions</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         BLOCK 3 — CAPA STATUS OVERVIEW
+    ======================================================= -->
+
+    <section class="qx-card qx-capa-status-card mt-4">
+
+        <div class="qx-card-header">
+
+            <div class="qx-card-header-left">
+                <h5 class="qx-card-title">CAPA Status Overview</h5>
+
+                <p class="qx-card-subtitle">
+                    Current action lifecycle
+                </p>
+            </div>
+
+        </div>
+
+        <div class="qx-card-body">
+
+            <div class="row g-3">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="qx-stat-card">
+
+                        <div class="qx-stat-icon qx-stat-icon-info">
+                            <i class="ri-folder-open-line"></i>
+                        </div>
+
+                        <div class="qx-stat-content">
+                            <span class="qx-stat-label">Open</span>
+                            <span class="qx-stat-value" id="statusOpen">7</span>
+                            <span class="qx-stat-meta">Awaiting action</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="qx-stat-card">
+
+                        <div class="qx-stat-icon qx-stat-icon-primary">
+                            <i class="ri-loader-4-line"></i>
+                        </div>
+
+                        <div class="qx-stat-content">
+                            <span class="qx-stat-label">In Progress</span>
+                            <span class="qx-stat-value" id="statusProgress">5</span>
+                            <span class="qx-stat-meta">Action underway</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="qx-stat-card">
+
+                        <div class="qx-stat-icon qx-stat-icon-warning">
+                            <i class="ri-search-eye-line"></i>
+                        </div>
+
+                        <div class="qx-stat-content">
+                            <span class="qx-stat-label">Pending Verification</span>
+                            <span class="qx-stat-value" id="statusVerification">3</span>
+                            <span class="qx-stat-meta">Awaiting review</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="qx-stat-card">
+
+                        <div class="qx-stat-icon qx-stat-icon-success">
+                            <i class="ri-checkbox-circle-line"></i>
+                        </div>
+
+                        <div class="qx-stat-content">
+                            <span class="qx-stat-label">Closed</span>
+                            <span class="qx-stat-value" id="statusClosed">9</span>
+                            <span class="qx-stat-meta">Successfully closed</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         BLOCK 4 — CAPA LIST
+    ======================================================= -->
+    
+    <!-- CAPA LIST HEADER / FILTER -->
+
+    <section class="qx-card qx-filter-card">
+
+        <div class="row g-3 align-items-end">
+
+            <div class="col-12 col-lg-4">
+
+                <label class="qx-form-label">Search</label>
+
+                <div class="qx-input-icon">
+
+                    <i class="ri-search-line"></i>
+
+                    <input
+                        type="text"
+                        id="capaSearch"
+                        class="form-control"
+                        placeholder="Search CAPA, finding, owner...">
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+
+                <label class="qx-form-label">Status</label>
+
+                <select id="capaStatus" class="form-select">
+                    <option value="">All Statuses</option>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Pending Verification">Pending Verification</option>
+                    <option value="Overdue">Overdue</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+
+                <label class="qx-form-label">Priority</label>
+
+                <select id="capaPriority" class="form-select">
+                    <option value="">All Priorities</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+
+                <label class="qx-form-label">Source</label>
+
+                <select id="capaSource" class="form-select">
+                    <option value="">All Sources</option>
+                    <option value="Inspection">Inspection</option>
+                    <option value="Supplier Audit">Supplier Audit</option>
+                    <option value="Internal Audit">Internal Audit</option>
+                    <option value="Customer Complaint">Customer Complaint</option>
+                </select>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+
+                <button
+                    type="button"
+                    id="resetCapaFilters"
+                    class="btn qx-filter-btn w-100"
+                    title="Reset filters">
+
+                    <i class="ri-refresh-line"></i>
+                    <span class="d-none d-md-inline ms-1">Reset</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CAPA TABLE -->
+    <section class="qx-card qx-table-card">
+
+        <div class="qx-table-header">
+
+            <div>
+                <h5 class="qx-table-title">CAPA List</h5>
+
+                <p class="qx-table-description mb-0">
+                    Review and manage corrective and preventive actions.
+                </p>
+            </div>
+
+            <div>
+
+                <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    id="exportCapas">
+
+                    <i class="ri-download-2-line me-1"></i>
+                    Export
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table qx-data-table align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th class="qx-check-column">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="selectAllCapas">
+                        </th>
+
+                        <th>CAPA ID</th>
+                        <th>Finding</th>
+                        <th>Source</th>
+                        <th>Priority</th>
+                        <th>Owner</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="capaTableBody"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="qx-table-footer">
+
+            <span class="qx-results-info" id="capaResultsInfo">
+                Showing <strong>1</strong> to <strong>10</strong> of <strong>24</strong> results
+            </span>
+
+            <div class="d-flex align-items-center gap-3">
+
+                <select
+                    class="form-select form-select-sm qx-page-size"
+                    id="capaPageSize">
+
+                    <option value="10">10 / page</option>
+                    <option value="25">25 / page</option>
+                    <option value="50">50 / page</option>
+
+                </select>
+
+                <nav aria-label="CAPA pagination">
+                    <ul
+                        class="pagination pagination-sm mb-0"
+                        id="capaPagination">
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================================
+         BLOCK 5 — CAPA DETAIL / ACTION
+    ======================================================= -->
+
+    <section class="qx-card qx-capa-detail-card mt-4">
+
+        <div class="qx-card-header">
+
+            <div class="qx-card-header-left">
+
+                <h5 class="qx-card-title">
+                    CAPA Detail / Action
+                </h5>
+
+                <p class="qx-card-subtitle">
+                    Select a CAPA from the list to review its action details.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="qx-card-body">
+
+                <div
+                    id="capaDetailEmpty"
+                    class="text-center py-5">
+
+                    <div class="mb-3">
+                        <i
+                            class="ri-search-line"
+                            style="font-size: 28px; color: #98a2b3;">
+                        </i>
+                    </div>
+
+                    <h6 class="fw-semibold mb-2">
+                        No CAPA Selected
+                    </h6>
+
+                    <p class="text-muted mb-0">
+                        Click the
+                        <strong>
+                            <i class="ri-eye-line"></i>
+                            View
+                        </strong>
+                        button in the CAPA List above
+                        to view CAPA details and actions.
+                    </p>
+
+                </div>
+
+            <div id="capaDetailContent" class="d-none">
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-lg-4">
+
+                        <div class="mb-3">
+                            <span class="qx-stat-label">CAPA ID</span>
+                            <div class="fw-semibold" id="detailId">—</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <span class="qx-stat-label">Finding</span>
+                            <div class="fw-semibold" id="detailFinding">—</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <span class="qx-stat-label">Source</span>
+                            <div id="detailSource">—</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <span class="qx-stat-label">Owner</span>
+                            <div id="detailOwner">—</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <span class="qx-stat-label">Due Date</span>
+                            <div id="detailDueDate">—</div>
+                        </div>
+
+                        <div>
+                            <span class="qx-stat-label">Status</span>
+                            <div id="detailStatus">—</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-lg-8">
+
+                        <div class="mb-4">
+                            <span class="qx-stat-label">Root Cause</span>
+                            <p class="mb-0 mt-1" id="detailRootCause">—</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="qx-stat-label">Corrective Action</span>
+                            <p class="mb-0 mt-1" id="detailCorrective">—</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="qx-stat-label">Preventive Action</span>
+                            <p class="mb-0 mt-1" id="detailPreventive">—</p>
+                        </div>
+
+                        <div>
+                            <span class="qx-stat-label">Verification</span>
+                            <p class="mb-0 mt-1" id="detailVerification">—</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- ==========================================================
+     CREATE CAPA MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="newCapaModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h5 class="modal-title">
+                        Create CAPA
+                    </h5>
+
+                    <p class="text-muted mb-0 small">
+                        Create a corrective or preventive action.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Source
+                        </label>
+
+                        <select id="newCapaSource" class="form-select">
+                            <option selected>Inspection</option>
+                            <option>Supplier Audit</option>
+                            <option>Internal Audit</option>
+                            <option>Customer Complaint</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Priority
+                        </label>
+
+                        <select id="newCapaPriority" class="form-select">
+                            <option>Low</option>
+                            <option selected>Medium</option>
+                            <option>High</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Finding
+                        </label>
+
+                        <input
+                            type="text"
+                            id="newCapaFinding"
+                            class="form-control"
+                            placeholder="Describe the finding...">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Owner
+                        </label>
+
+                        <input
+                            type="text"
+                            id="newCapaOwner"
+                            class="form-control"
+                            placeholder="e.g. John Carter">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="newCapaDueDate"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Root Cause
+                        </label>
+
+                        <textarea
+                            id="newCapaRootCause"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Identify the root cause..."></textarea>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Corrective Action
+                        </label>
+
+                        <textarea
+                            id="newCapaCorrective"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Define the corrective action..."></textarea>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Preventive Action
+                        </label>
+
+                        <textarea
+                            id="newCapaPreventive"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Define the preventive action..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary"
+                    id="createCapaBtn">
+
+                    <i class="ri-check-line me-2"></i>
+                    Create CAPA
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div> <!-- End .qx-dashboard -->
+
+</div> <!-- End .qx-container -->
+
+<!-- ==========================================================
+     EDIT CAPA MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="editCapaModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h5 class="modal-title">
+                        Edit CAPA
+                    </h5>
+
+                    <p class="text-muted mb-0 small">
+                        Update corrective or preventive action.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <input
+                    type="hidden"
+                    id="editCapaId">
+
+
+                <div class="row g-3">
+
+                    <!-- Source -->
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Source
+                        </label>
+
+                        <select
+                            id="editCapaSource"
+                            class="form-select">
+
+                            <option>
+                                Inspection
+                            </option>
+
+                            <option>
+                                Supplier Audit
+                            </option>
+
+                            <option>
+                                Internal Audit
+                            </option>
+
+                            <option>
+                                Customer Complaint
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Priority -->
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Priority
+                        </label>
+
+                        <select
+                            id="editCapaPriority"
+                            class="form-select">
+
+                            <option>
+                                Low
+                            </option>
+
+                            <option>
+                                Medium
+                            </option>
+
+                            <option>
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Finding -->
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Finding
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editCapaFinding"
+                            class="form-control"
+                            placeholder="Describe the finding...">
+
+                    </div>
+
+
+                    <!-- Owner -->
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Owner
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editCapaOwner"
+                            class="form-control"
+                            placeholder="e.g. John Carter">
+
+                    </div>
+
+
+                    <!-- Due Date -->
+
+                    <div class="col-md-6">
+
+                        <label class="qx-form-label">
+                            Due Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="editCapaDueDate"
+                            class="form-control">
+
+                    </div>
+
+
+                    <!-- Root Cause -->
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Root Cause
+                        </label>
+
+                        <textarea
+                            id="editCapaRootCause"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Identify the root cause..."></textarea>
+
+                    </div>
+
+
+                    <!-- Corrective Action -->
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Corrective Action
+                        </label>
+
+                        <textarea
+                            id="editCapaCorrective"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Define the corrective action..."></textarea>
+
+                    </div>
+
+
+                    <!-- Preventive Action -->
+
+                    <div class="col-12">
+
+                        <label class="qx-form-label">
+                            Preventive Action
+                        </label>
+
+                        <textarea
+                            id="editCapaPreventive"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Define the preventive action..."></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn qx-btn-primary"
+                    id="saveCapaEditBtn"
+                    data-bs-dismiss="modal">
+                    
+
+                    <i class="ri-save-line me-2"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</main>
+
+        <!-- Global Footer -->
+        <div id="qx-footer"></div>
+
+
+    </div> <!-- End .qx-main -->
+
+</div> <!-- End .qx-app -->
+
+
+</body>
+
+</html>
